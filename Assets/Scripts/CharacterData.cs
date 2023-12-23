@@ -9,8 +9,6 @@ public class CharacterData : MonoBehaviour
     //問題のデータインスタンスを生成(unity上でアタッチ)
     //自身に対応する回答ボタンが押されたときにスコアを反映するメソッドを所持
 
-    public int num;
-    public bool choice = false;
     public int likeA = 33;
     public int likeB = 10;
     public int likeC = 5;

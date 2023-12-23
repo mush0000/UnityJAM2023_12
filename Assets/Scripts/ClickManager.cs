@@ -6,11 +6,13 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class ClickManager : MonoBehaviour
 {
-    public void OnItemClick(){
-        // if()
-        // {
+    //このクラスの役割
+    //プレイヤーが回答したら、加点メソッドを呼び出し、次の問題へ進む
+    //３問呼び出したら、result(結果画面)へ移行する
 
-        // }
+    public int quizCount;//今何問目かを記録
+    public void OnClick()
+    {
     }
     // Start is called before the first frame update
     void Start()

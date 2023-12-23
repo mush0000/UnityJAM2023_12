@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class CharacterData : MonoBehaviour
 {
+    //このクラスの役割
+    //問題のデータインスタンスを生成(unity上でアタッチ)
+    //自身に対応する回答ボタンが押されたときにスコアを反映するメソッドを所持
 
     public int num;
     public bool choice = false;
@@ -12,23 +15,27 @@ public class CharacterData : MonoBehaviour
     public int likeB = 10;
     public int likeC = 5;
     public int likeD = 34;
-    public Image faice;
-    public Image itemA;
-    public Image itemB;
-    public Image itemC;
+    public Sprite  faice;
+    public Sprite itemA;
+    public Sprite itemB;
+    public Sprite itemC;
     // Start is called before the first frame update
 
-    public void OnItemAClick(int num)//Aを選択したときのスコアを加算
+    public void OnLikeAClick()//Aを選択したときのスコアを加算
     {
-        GameDirector.scores += num;
+        GameDirector.scores += this.likeA;
     }
-    public void OnItemBClick(int num)//Bを選択したときのスコアを加算
+    public void OnLikeBClick()//Bを選択したときのスコアを加算
     {
-        GameDirector.scores += num;
+        GameDirector.scores += this.likeB;
     }
-    public void OnItemCClick(int num)//Cを選択したときのスコアを加算
+    public void OnLikeCClick()//Cを選択したときのスコアを加算
     {
-        GameDirector.scores += num;
+        GameDirector.scores += this.likeC;
+    }
+     public void OnLikeDClick()//Dを選択したときのスコアを加算
+    {
+        GameDirector.scores += this.likeD;
     }
     void Start()
     {

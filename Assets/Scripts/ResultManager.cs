@@ -82,6 +82,6 @@ public class ResultManager : MonoBehaviour
     {
         this.resultRank.GetComponent<Text>().text = rank;
         this.resultComment.GetComponent<Text>().text = comment;
-        resultImage.GetComponent<Image>() = reImage;
+        //this.resultImage.GetComponent<Image>() = reImage;
     }
 }

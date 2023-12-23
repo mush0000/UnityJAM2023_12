@@ -16,6 +16,8 @@ public class GameDirector : MonoBehaviour
 
     public static List<CharacterData> selectCharas;//一覧から問題を抜き出す箱
     public static int scores;//合計得点を表示(シーンを切り替えても消えないようにする)
+
+    public int viewScores;//合計得点確認用
     public int quizCount = 0;//今何問目かを記録
 
     //public int ans;//回答時の得点(引数)を受け取る箱
@@ -52,13 +54,13 @@ public class GameDirector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
         SelectQuiz();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        viewScores = scores;
     }
 }

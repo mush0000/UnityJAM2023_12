@@ -29,7 +29,7 @@ public class GameDirector : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             // ランダムな内容を１つ抽選、取得
-            int index = Random.Range(0, selectCharas.Count);
+            int index = Random.Range(0, allCharas.Count);
             CharacterData quiz = allCharas[index];//quizに一つ問題を入れる
             selectCharas.Add(quiz);//selectCharasに問題を加える
 
@@ -38,8 +38,9 @@ public class GameDirector : MonoBehaviour
         }
     }
 
-    public void QuizQuestion()//クイズを出題、切り替え
+    public static void QuizQuestion()//クイズを出題、切り替え
     {
+        Debug.Log("QuizQuestion");
         if(quizCount>3){
             selectCharas[quizCount-1].gameObject.SetActive(false);
             selectCharas[quizCount].gameObject.SetActive(true);

@@ -21,19 +21,27 @@ public class CharacterData : MonoBehaviour
 
     public void OnLikeAClick()//Aを選択したときのスコアを加算
     {
+        Debug.Log("LikeAClick");
         GameDirector.scores += this.likeA;
+        GameDirector.QuizQuestion();
     }
     public void OnLikeBClick()//Bを選択したときのスコアを加算
     {
+        Debug.Log("LikeBClick");
         GameDirector.scores += this.likeB;
+        GameDirector.QuizQuestion();
     }
     public void OnLikeCClick()//Cを選択したときのスコアを加算
     {
+        Debug.Log("LikeCClick");
         GameDirector.scores += this.likeC;
+        GameDirector.QuizQuestion();
     }
      public void OnLikeDClick()//Dを選択したときのスコアを加算
     {
+        Debug.Log("LikeDClick");
         GameDirector.scores += this.likeD;
+        GameDirector.QuizQuestion();
     }
     void Start()
     {

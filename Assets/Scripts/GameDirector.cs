@@ -11,15 +11,12 @@ public class GameDirector : MonoBehaviour
 
     // メンバ変数、インスペクターで設定する場合はnewはいらない
     public List<CharacterData> allCharas = new List<CharacterData>();// 問題一覧(アタッチで格納)
-    // CharacterData chara_instance = Instantiate(CharacterPrefab) as CharacterData;
-    //     //生成したインスタンスをリストで持っておく
-    //     allCharas.Add(chara_instance);
 
     public static List<CharacterData> selectCharas;//一覧から問題を抜き出す箱
     public static int scores;//合計得点を表示(シーンを切り替えても消えないようにする)
 
     public int viewScores;//合計得点確認用
-    public static int quizCount = 0;//今何問目かを記録
+    public static int quizCount = 1;//今何問目かを記録
 
 
     public void SelectQuiz()//問題を入れるメソッド
@@ -41,7 +38,8 @@ public class GameDirector : MonoBehaviour
     public static void QuizQuestion()//クイズを出題、切り替え
     {
         Debug.Log("QuizQuestion");
-        if(quizCount>3){
+        Debug.Log("viewScores");
+        if(quizCount<3){
             selectCharas[quizCount-1].gameObject.SetActive(false);
             selectCharas[quizCount].gameObject.SetActive(true);
             quizCount += 1;
@@ -65,7 +63,6 @@ public class GameDirector : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         SelectQuiz();
         selectCharas[0].gameObject.SetActive(true);
-        quizCount += 1;
     }
 
     // Update is called once per frame

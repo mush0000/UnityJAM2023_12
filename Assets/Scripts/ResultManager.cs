@@ -57,7 +57,7 @@ public class ResultManager : MonoBehaviour
             comment = "子供が一番ほしいプレゼントはどれかな？";
             reImage = resultImageC;
         }
-        else if(this.resultScores <= 0)
+        else if(this.resultScores >= 0)
         {
             rank = "D";
             comment = "もう一度チャレンジしてみよう!!";

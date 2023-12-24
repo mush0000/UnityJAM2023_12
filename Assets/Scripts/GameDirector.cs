@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameDirector : MonoBehaviour
 {
@@ -18,9 +19,7 @@ public class GameDirector : MonoBehaviour
     public static int scores;//合計得点を表示(シーンを切り替えても消えないようにする)
 
     public int viewScores;//合計得点確認用
-    public int quizCount = 0;//今何問目かを記録
-
-    //public int ans;//回答時の得点(引数)を受け取る箱
+    public static int quizCount = 0;//今何問目かを記録
 
 
     public void SelectQuiz()//問題を入れるメソッド
@@ -39,10 +38,18 @@ public class GameDirector : MonoBehaviour
         }
     }
 
-    // public object QuizCount()
-    // {
-    //     selectCharas[0].SetActive;
-    // }
+    public void QuizQuestion()//クイズを出題、切り替え
+    {
+        if(quizCount>3){
+            selectCharas[quizCount-1].gameObject.SetActive(false);
+            selectCharas[quizCount].gameObject.SetActive(true);
+            quizCount += 1;
+        }
+        else if(quizCount == 3)
+        {
+            SceneManager.LoadScene("Result");
+        }
+    }
 
     
 
@@ -54,13 +61,15 @@ public class GameDirector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(this.gameObject);
         SelectQuiz();
+        selectCharas[0].gameObject.SetActive(true);
+        quizCount += 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        viewScores = scores;
+
     }
 }

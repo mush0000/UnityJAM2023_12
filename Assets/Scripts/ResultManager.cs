@@ -12,11 +12,11 @@ public class ResultManager : MonoBehaviour
     //スコアに応じた結果を画面に表示
 
     public int resultScores;//ゲームディレクタークラスのスコアを受け取る
-    public GameObject resultRank;//スコアに応じたランク
+    public Text resultRank;//スコアに応じたランク
     public string rank;
-    public GameObject resultComment;//ランクごとのコメント
+    public Text resultComment;//ランクごとのコメント
     public string comment;
-    public GameObject resultImage;
+    public Image resultImage;
     public Sprite reImage;
     public Sprite resultImageS;//結果ごとの表示画像
     public Sprite resultImageA;//結果ごとの表示画像
@@ -63,25 +63,23 @@ public class ResultManager : MonoBehaviour
             comment = "もう一度チャレンジしてみよう!!";
             reImage = resultImageD;
         }
+        this.resultRank.text = rank;
+        this.resultComment.text = comment;
+        this.resultImage.sprite = reImage;
     }
 
     // Start is called before the first frame update
     void Start()
     {
         resultScores = GameDirector.scores;//ゲームディレクタークラスのスコアを受け取る
-        //resultScores = 50;
+        //resultScores = 50;//デバック用
         JudeResultRunk();
-        this.resultRank = GameObject.Find("resultRank");
-        this.resultComment = GameObject.Find("resultComment");
-        this.resultImage = GameObject.Find("resultImage");
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.resultRank.GetComponent<Text>().text = rank;
-        this.resultComment.GetComponent<Text>().text = comment;
-        //this.resultImage.GetComponent<Image>() = reImage;
+
     }
 }
